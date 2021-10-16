@@ -1,0 +1,81 @@
+body{
+	background: #f2f2f2;
+}
+
+/* 铵价格查询 */
+.chaxun{
+	padding: 20px 0;
+	margin-bottom: 20px;
+}
+.chaxun div{
+	width: 100%;
+	margin: 20px 0;
+}
+.chaxun button[type="submit"]{
+	background: #00EFF2;
+}
+
+.product-show>div>div:nth-child(1){
+	background: white;
+}
+
+/* 商品展示区 */
+/* 在此初始化所有缩略图标题样式 */
+.product-show .row{
+	text-align: center;
+}
+.product-show .row>div{
+	overflow: hidden;
+}
+.product-show .row>div>div{
+	background: white;
+}
+.product-show .row h3,
+.product-show .row p{
+	white-space: nowrap;/* 文字超出不换行 */
+	overflow: hidden;/* 超出隐藏 */
+	text-overflow: ellipsis;/* 文字超出用省略号代替 */
+}
+.product-show .row h3{
+	font-size: 16px;
+}
+/* 设置所有缩略图段文字颜色-淡灰色 */
+.product-show .row p{
+	font-size: 12px;
+}
+.product-show .row .money{
+	font-size: 16px;
+	color: red;
+}
+
+/* 分页模块 */
+#paging{
+	position: relative;
+}
+/* 分页两侧按钮 */
+#page_both{
+	pointer-events:none;
+}
+#page_both li{
+	pointer-events:auto;
+}
+/* 分页数字模块 */
+#page_num{
+	position: absolute;
+	top:0;
+	left:0;
+	display:flex;
+	justify-content:center;
+	width:100%;
+	margin:0;
+	pointer-events:none;
+}
+#page_num li{
+	pointer-events:auto;
+}
+
+@media screen and (min-width:1000px){
+	.product-show .row img{
+		height: 170px !important;
+	}
+}

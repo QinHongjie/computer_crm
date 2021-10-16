@@ -1,0 +1,55 @@
+/* 产品图片 */
+#detail div{
+	padding: 20px 0;
+}
+#detail img{
+	height:90%;
+	width: 90%;
+	transition: 1s;
+}
+#detail img:hover{
+	transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+/* 产品名 */
+#detail h3{
+	font-weight: 999;
+}
+#detail p{
+	margin: 20px 0;
+}
+/* 价格 */
+#detail .price{
+	font-size: 25px;
+	color: red;
+	font-weight: 777;
+}
+/* 加入购物车按钮 */
+#detail button{
+	border-radius: 0;
+	height: 100%;
+	background: #00eff2;
+}
+/* 购买数量 */
+.quantity div{
+	display: inline-block;
+	height: 100%;
+}
+.quantity input{
+	border-radius: 0;
+	border:1px solid black;
+	background: white;
+	font-size: 18px;
+	height: 45px;
+}
+.quantity input[type="text"]{
+	margin: 0 -5px;
+	position: relative;
+	top: 3px;
+}
+
+table{
+	margin-top:50px;
+}

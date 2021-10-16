@@ -1,0 +1,49 @@
+/* 没有购物显示块 */
+#no-shopping{
+	padding: 120px 0;
+}
+
+/* 表格 */
+#shoppinglist table{
+	background: white;
+	margin-top: 40px;
+}
+/* 表格标题下边框 */
+#shoppinglist th{
+	border-bottom: 3px solid #DCDCDC;
+}
+/* 图片固定高度 */
+#shoppinglist img{
+	height: 90px;
+}
+/* 商品展示表格 名称列样式 */
+#shoppinglist td.title{
+	width: 50%;
+	overflow: hidden;
+}
+/* 商品展示表格 合计列字体样式 */
+#shoppinglist .total{
+	color: gray;
+	font-weight: 999;
+}
+
+
+/* 删除商品按钮 */
+#shoppinglist button#del{
+	color:whitesmoke;
+	background: #D9534F;
+}
+/* 前往收银台按钮 */
+#shoppinglist button#go{
+	background: #00EFF2;
+}
+
+/* 右侧下边距填充 将页脚挤下去 */
+#shoppinglist>div>div:nth-child(2){
+	margin-bottom: 110px;
+}
+@media screen and (max-width:1000px) {
+	#shoppinglist>div>div:nth-child(2){
+		margin-bottom: 0;
+	}
+}

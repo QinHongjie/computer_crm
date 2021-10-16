@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace=绑定定一个对应的dao/mapper接口-->
+<mapper namespace="com.computer.dao.ShoppingCarDao">
+
+    <!--======================================新增=============================================-->
+    <!--通过用户id和商品id向用户购物车添加商品-->
+    <insert id="addToSC">
+        insert into shoppingcar(userId, comId, sum) values(#{userId}, #{comId}, #{sum})
+    </insert>
+
+    <!--=======================================修改===========================================-->
+    <!--通过用户id和商品id 更新购物车商品数量-->
+    <update id="updateSumSC">
+        update shoppingcar set sum=sum+#{sum} where userId=#{userId} and comId=#{comId}
+    </update>
+
+    <!--=======================================删除===========================================-->
+    <!--将商品移除用户购物车-->
+    <delete id="delUserSC">
+        delete from shoppingcar where id in
+        <foreach collection="list"  item="item" open="(" separator="," close=")"  >
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--=======================================查询===========================================-->
+    <!--通过用户id和商品id查询购物记录-->
+    <select id="findSC" resultType="shoppingCar">
+        select * from shoppingcar where userid=#{userId} and comid=#{comId}
+    </select>
+
+    <!--查询用户购物车-->
+    <select id="findUserSC" resultMap="SCWithComResult">
+        select c.id as cid,c.comName,c.intro,c.price,c.picture,sc.id as scid,sc.userId,sc.comId,sc.sum
+        from computer c join shoppingcar sc on c.id = sc.comid where sc.userid = #{userId}
+    </select>
+
+    <!--通过id查询购物信息-->
+    <select id="findSCById" resultType="shoppingCar">
+        select * from shoppingcar where id=#{id}
+    </select>
+
+    <!--====================================结果集映射===========================================-->
+    <!--订单表and商品表-->
+    <resultMap id="SCWithComResult" type="com.computer.model.ShoppingCar">
+        <id property="id" column="scid" />
+        <result property="userId" column="userId" />
+        <result property="comId" column="comId" />
+        <result property="sum" column="sum" />
+        <association property="com" javaType="com.computer.model.Computer">
+            <id property="id" column="cid" />
+            <result property="comName" jdbcType="VARCHAR" column="comName" />
+            <result property="intro" jdbcType="VARCHAR" column="intro" />
+            <result property="price" jdbcType="INTEGER" column="price" />
+            <result property="picture" jdbcType="VARCHAR" column="picture" />
+        </association>
+    </resultMap>
+
+</mapper>

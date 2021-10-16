@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace=绑定定一个对应的dao/mapper接口-->
+<mapper namespace="com.com.com.computer.dao.UserDao">
+
+    <!--新增用户-->
+    <insert id="addUser" parameterType="user">
+        insert into user(userName,password,telephone,address)
+        values(#{userName},#{password},#{tel},#{address})
+    </insert>
+
+    <!--新增多个用户-->
+    <insert id="insertUsers" parameterType="map">
+        insert into user(name,pwd) values
+        <foreach collection="users" item="user" separator=",">
+            (#{user.name},#{user.pwd})
+        </foreach>
+    </insert>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
+
+    <!--修改用户信息-->
+    <update id="updateUser" parameterType="user">
+        update user set userName=#{userName},password=#{password},telephone=#{tel},address=#{address}
+        where id=#{id}
+    </update>
+
+    <!--通过用户名和密码查询用户-->
+    <select id="findUser" parameterType="String" resultType="user">
+        Select * from user where userName=#{userName} and password=#{password}
+        and status = '1'
+    </select>
+
+</mapper>

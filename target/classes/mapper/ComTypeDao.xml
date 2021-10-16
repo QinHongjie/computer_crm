@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace=绑定定一个对应的dao/mapper接口-->
+<mapper namespace="com.computer.dao.ComTypeDao">
+
+    <!--外关联商品表-->
+    <resultMap id="ComWithTypeResult" type="com.computer.model.ComType">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="typeName" jdbcType="VARCHAR" property="typeName" />
+    </resultMap>
+
+</mapper>

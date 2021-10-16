@@ -1,0 +1,291 @@
+/* 初始化操作 */
+*{
+	font-family: "微软雅黑";
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #f2f2f2;
+}
+a{
+	text-decoration: none !important;
+}
+/* 鼠标显示手势 */
+.shoushi{
+	cursor: pointer;
+}
+/* 顶部条-超链接内容 使鼠标徘徊不变色 */
+#top-bar a:hover{
+	color: #999;
+}
+/* 顶部条 */
+#top-bar{
+	background:#272727;
+	height: 45px;
+	font-size: 12px;
+}
+#top-bar nav{
+	margin-top: -5px;
+}
+
+/* 有用户时下拉菜单的样式 */
+#top-bar .dropdown-menu,
+#navbar-left .dropdown-menu{
+	color: whitesmoke;
+	background: #272727;
+}
+#top-bar .dropdown-menu a,
+#navbar-left .dropdown-menu a{
+	color: whitesmoke;
+}
+#top-bar .dropdown-menu a:hover,
+#navbar-left .dropdown-menu a:hover{
+	color: #00eff2;
+	background: transparent;
+}
+
+/* 清除默认内边距,使布局更精确 */
+#top-bar .leftDiv-clear-paddingLeft,
+#top-bar .a-clear-paddingLeft{
+	padding-left: 0;
+}
+#top-bar .a-clear-paddingRight{
+	padding-right: 0;
+}
+
+/* 	-	-	-	-	-	大屏幕顶部导航栏 	-	-	-	-	-	*/
+#header{
+	padding: 20px 0 10px;
+	background: black;
+	border-bottom: 1px solid #00eff2;
+}
+/* logo布局大小 */
+#header .logo{
+	width: 230px;
+	height: 50px;
+	margin-top: -15px;
+}
+/* 导航栏 文字颜色 */
+#header a{
+	color: #999;
+	transition: all .2s;
+	background: transparent;
+}
+/* 文字 "首页" 颜色 */
+#navbar-left .active,
+#navbar .active{
+	color: #00eff2;
+}
+/* 导航栏 鼠标徘徊文字变色 背景保持透明 */
+#header a:hover,
+#header a:focus{
+	background: transparent;
+	color: #00eff2;
+	transition: all .2s;
+}
+/* 搜索图标 */
+.s_submit:hover{
+	color: #00eff2;
+	transition: all .2s;
+}
+/* 导航栏扩展标志 */
+#header .icon span{
+	font-size: 20px;
+	color: #777;
+	transition: all 1s;
+}
+/* 鼠标徘徊 导航栏扩展标志 变色 */
+#header .icon:hover span{
+	color: #00eff2;
+}
+/* 导航栏搜索框 */
+#header #searchform{
+	width: 200px;
+	height: 40px;
+	border: 1px solid rgba(55,55,55,1);
+	outline: none;
+	padding-left: 20px;
+	margin: 5px 0;
+}
+/* 搜索框-输入框 */
+#header #searchform #form_search{
+	width: 140px;
+	height: 40px;
+	color: #7a7a7a;
+	background: transparent;
+	border: transparent;
+	outline: none;
+}
+
+/* 	-	-	-	-	-	小屏幕顶部固定导航栏	-	-	-	-	-	*/
+#nav-sm{
+	padding: 20px 0;
+	display: none;
+	z-index: 777;
+}
+/* 弹性盒子 使顶部导航栏三图标等距排列 */
+#nav-sm #nav-top{
+	display:flex;
+	justify-content: space-between;
+}
+/* 	-	-	-	-	-	侧边导航栏 固定在页面左侧		-	-	-	-	-	*/
+#navbar-left{
+	position: fixed;
+	top: 0;
+	left: -250px;
+	background: black;
+	width: 250px;
+	height: 100%;
+	display: none;
+	transition: .5s;/* 侧边导航栏入场过渡 */
+	z-index: 999;
+}
+/* 侧边导航栏页面导航文字效果 */
+#navbar-left #info a{
+	border: none;
+	background: black;
+}
+/* 鼠标徘徊 侧边导航栏 文字信息动画 */
+#navbar-left #info a:hover{
+	padding-left: 20px;
+	transition: .5s;
+}
+/* 侧边导航栏(登录/注册) */
+#navbar-left ul{
+	display: flex;
+	justify-content: space-between;
+	font-size: 16px;
+}
+
+/* 黑幕 左侧导航栏出现时显示 用于遮挡页面内容 */
+#blackM{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.3);
+	display: none;
+	z-index: 998;
+}
+
+/* 顶部导航栏 文字和搜索框 */
+#navbar{
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: black;
+	z-index: 888;
+}
+
+/* 	-	-	-	-	-	右边固定信息块	-	-	-	-	-	*/
+#right-fixed{
+	width: 54px;
+	height: 162px;
+	position: fixed;
+	right: 0;
+	top: 50%;
+	margin-top: -81px;
+	z-index: 800;
+}
+#right-fixed>div{
+	position:relative;
+}
+#right-fixed div{
+	width: 54px;
+	height: 54px;
+	background: #00eff2;
+}
+/* 电话信息图片动画过渡 */
+#right-fixed .phone img{
+	transition: .4s;
+}
+/* 鼠标徘徊 手机图标扩展 */
+#right-fixed .phone:hover img{
+	margin-left: -116px;
+	transition: .4s;
+}
+/* 在线人数模块 */
+#right-fixed #online_count{
+	font-size: 25px;
+	padding: 10px 15px;
+}
+#right-fixed .text{
+	position:absolute;
+	bottom:0px;
+	left:8px;
+	font-size:10px;
+	font-weight: 999;
+}
+
+/* 购物车图标 */
+#right-fixed #gwc{
+	font-size: 25px;
+	padding: 10px 15px;
+	display: none;
+}
+/* 徽章 */
+#right-fixed .badge{
+	position:absolute;
+	top:2px;
+	left:2px;
+	z-index:5;
+}
+
+/* 右下角 固定回到顶部连接 */
+#toTop{
+	width: 34px;
+	height: 34px;
+	position: fixed;
+	right: 20px;
+	bottom: 30px;
+	background: #00eff2;
+	padding: 8px 10px;
+	cursor: pointer;
+	display: none;
+	z-index: 996;
+}
+#toTop span{
+	color: black;
+}
+
+
+/*	-	-	-	-	-	当浏览器窗口宽度小于900像素时改变某些元素显示样式	-	-	-	-	-	*/
+@media screen and (max-width:1000px){
+	/* 隐藏顶部条 */
+	#top-bar{
+		display: none;
+	}
+	/* 导航栏logo */
+	#header .logo{
+		width: 120px;
+		height: 25px;
+		margin: 0;
+	}
+	/* 隐藏大屏幕显示的导航栏 */
+	#nav-bg{
+		display: none;
+	}
+	/* 显示小屏幕固定顶部导航栏 */
+	#nav-sm{
+		display: block;
+	}
+	/* 左侧导航栏 预显示 */
+	#navbar-left{
+		display: block;
+	}
+	/*	-	-	-	左侧固定栏	-	-	-	*/
+	#right-fixed{
+		top: 225px;
+		margin-top: 0;
+	}
+	/* 显示购物车图标 */
+	#right-fixed #gwc{
+		display: block;
+	}
+	/* 隐藏置顶图标 */
+	#right-fixed .scroll-top{
+		display: none;
+	}
+	
+}

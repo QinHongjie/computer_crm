@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+.page-header{
+	margin-top:20px;
+}
+
+/* 分页模块 */
+#paging{
+	position: relative;
+}
+/* 分页两侧按钮 */
+#page_both{
+	pointer-events:none;
+}
+#page_both li{
+	pointer-events:auto;
+}
+/* 分页数字模块 */
+#page_num{
+	position: absolute;
+	top:0;
+	left:0;
+	display:flex;
+	justify-content:center;
+	width:100%;
+	margin:0;
+	pointer-events:none;
+}
+#page_num li{
+	pointer-events:auto;
+}
+
+.i-succee{
+	display:inline-block;
+	width: 10px;
+	height:10px;
+	background: #18bc9c;
+	border-radius: 50%;
+	margin-right:5px;
+}
+.i-danger{
+	display:inline-block;
+	width: 10px;
+	height:10px;
+	background: #e74c3c;
+	border-radius: 50%;
+	margin-right:5px;
+}
+

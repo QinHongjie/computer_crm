@@ -1,0 +1,212 @@
+/*	-	-	-	-	-	轮播块 	-	-	-	-	-	*/
+#carousel{
+	position: relative;
+}
+#carousel img{
+	width: 100%;
+	height: 512px;
+}
+#carousel ol li{
+	width: 60px;
+	height: 6px;
+	border-radius: 0;
+	border: none;
+	box-shadow: 0 0 6px darkgray;
+}
+#carousel a{
+	z-index: 5;
+}
+
+#carousel-list{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+#carousel-list div div{
+	width: 240px;
+	height: 512px;
+}
+#carousel-list div div a{
+	width: 100%;
+	height: 11.3%;
+	border-top: 1px solid #3a3a3a;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-radius: 0;
+	background: rgba(25,25,25,.8);
+	color: whitesmoke;
+	line-height: 40px;
+}
+#carousel-list div div a.active{
+	border-top:none;
+	background: #00eff2;
+	color: #333;
+	font-weight: 555;
+}
+#carousel-list div div a.active span{
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -10px 0 0 -10px;
+}
+#carousel-list div div a:not(.active):hover{
+	background: #3C3C3C;
+}
+
+/* 轮播图下面 四个信息图片 */
+#four-info{
+	height: 160px;
+	padding: 15px 0;
+}
+#four-info div{
+	width: 25%;
+	height: 100%;
+}
+#four-info div div{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+#four-info img{
+	height: 100%;
+	width: 100%;
+}
+
+/*	-	-	-	-	-	精选单品推荐	-	-	-	-	-	*/
+/* 在此初始化所有缩略图标题样式 */
+.row h3,
+.row p{
+	white-space: nowrap;/* 文字超出不换行 */
+	overflow: hidden;/* 超出隐藏 */
+	text-overflow: ellipsis;/* 文字超出用省略号代替 */
+}
+.row h3{
+	font-size: 16px;
+}
+/* 设置所有缩略图段文字颜色-淡灰色 */
+.row p{
+	font-size: 12px;
+	color: #b7b7b7;
+}
+#jxdp div{
+	overflow: hidden;
+}
+#jxdp div div:hover p{
+	color: black;
+}
+/* 设置图片大小为百分比显示 为了适应小屏幕 */
+#jxdp img{
+	width: 80%;
+	height:90%;
+	transition: 1s;
+}
+/* 鼠标移上 图片放大效果 */
+#jxdp div div:hover img{
+	transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transition: 1s;
+}
+
+/*	-	-	-	-	-	中间内容 大图标+缩略图 混合块	-	-	-	-	-	*/
+#central_content .s-title{
+	font-size: 25px;
+	line-height: 50px;
+}
+/* 图片自适应容器 */
+#central_content img{	
+	width: 100%;
+	height: 100%;
+}
+/* 外层栅格系统 */
+#central_content .h{
+	padding-top: 10px;
+	overflow: hidden;
+}
+#central_content .big-img{
+	padding-top: 10px;
+}
+/* 大图片固定高度 */
+#central_content .big-img img{
+	height: 535px;
+}
+/* 鼠标徘徊缩略图上移动效 */
+#central_content .row>div>div:hover{
+	box-shadow: 0 10px 10px #ccc;
+	transform: translateY(-10px);
+	transition: .5s;
+}
+#central_content .row>div>div{
+	transition: .5s;
+}
+/* 价格颜色 */
+#central_content .money{
+	color: #00eff2;
+}
+/*	-	-	-	外观系列	-	-	-	*/
+#central_content #wsxl .big-img img{
+	height: 255px;
+}
+
+.tab-pane>div{
+	overflow: hidden;
+}
+
+
+/*	-	-	-	-	-	当浏览器窗口宽度小于1000像素时改变某些元素显示样式	-	-	-	-	-	*/
+@media screen and (max-width:1000px){
+	/* 	-	-	-	轮播图 	-	-	-	*/
+	/* 上边距 防止被固定顶部导航栏遮住 */
+	#carousel{
+		margin-top: 30px;
+	}
+	/* 固定轮播图高度 */
+	#carousel img{
+		height: 160px;
+	}
+	#carousel ol{
+		display: none;
+	}
+	/* 隐藏轮播图上导航菜单列 */
+	#carousel-list{
+		display: none;
+	}
+	
+	/*	-	-	-	轮播图下面 第一排图片	-	-	-	*/
+	#four-info{
+		padding:0;
+	}
+	#four-info div{
+		padding: 0;
+		height: 170px;
+		width: 100%;
+	}
+	#four-info div img{
+	}
+	/* 清除后面三张图片 */
+	#four-info div.h{
+		display: none;
+	}
+	
+	/* 	-	-	-	中心内容 左边大图片 宽度自适应容器	-	-	-	*/
+	#central_content #big-img img{
+		height: 100%;
+	}
+	#central_content #wsxl .big-img img{
+		height: 100%;
+	}
+}
+
+@media screen and (min-width:1000px){
+	#jxdp img{
+		height: 150px !important;
+	}
+	#central_content .row img{
+		height: 130px !important;
+	}
+}

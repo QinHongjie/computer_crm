@@ -1,0 +1,103 @@
+a { 
+	color: #0078ff; 
+}
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f3f3f3;
+  margin: 0px;
+  overflow: hidden;
+}
+/* 页面内容绝对定位 为了给背景特效预留空间 */
+#main{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+/* 表单基本样式 */
+.form-signin {
+	color: #8C8C8C;
+	padding: 15px;
+	margin: 0 auto;
+}
+/* 输入框各行间间距 */
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #CED4DA;
+}
+/* 输入框 */
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+/* 输入框获取焦点时 */
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+/* 除了复选框的其它input外边距 */
+.form-signin .input{
+	margin: 10px auto;
+}
+/* 错误信息提示 */
+.form-signin .alert{
+	padding: 5px 10px;
+	display: none;
+}
+/* 按钮 */
+.form-signin button{
+	color: black;
+	border: none;
+	outline: none;
+}
+.form-signin>button.submit{
+	background: #00eff2;
+}
+.form-signin>button:not(.submit){
+	background: white;
+}
+/* 第三方登录 */
+.dsf{
+	padding: 20px 0;
+}
+.dsf img{
+	width: 24px;
+	border-radius: 50%;
+}
+/* 忘记密码 */
+#form-login .wjmm{
+	color: grey;
+	cursor: pointer;
+}
+/* 注册块 隐藏 */
+#form-register{
+	display: none;
+}
+/* 加载动画 图片初始隐藏 */
+.form-signin .loading{
+	display: none;
+}
+
+#check_code button{
+	height: 44px;
+	background: #00eff2;
+}
+
+
+@media screen and (min-width:580px){
+	.form-signin {
+		width: 430px;
+	}
+}
+
+@media screen and (max-width:580px){
+	.form-signin {
+		width: 330px;
+	}
+}

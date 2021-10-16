@@ -1,0 +1,87 @@
+/* 	-	-	-	-	-	上移入场动画	-	-	-	-	-	*/
+/* 向上移动class */
+.move_top{
+	opacity: 0;
+	transition: 1s;
+}
+.move_top_show{
+	-webkit-animation: moveTop linear 700ms 1;
+	opacity: 1;
+}
+/* 向上移动入场动画 */
+@-webkit-keyframes moveTop{
+	from{
+		opacity: 0;
+		transform: translateY(50%);
+	}
+	to{
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* 	-	-	-	-	-	下移入场动画	-	-	-	-	-	*/
+/* 向下移动class */
+.move_bottom{
+	opacity: 0;
+	transition: 1s;
+}
+.move_bottom_show{
+	-webkit-animation: moveBottom linear 700ms 1;
+	opacity: 1;
+}
+/* 向下移动入场动画 */
+@-webkit-keyframes moveBottom{
+	from{
+		opacity: 0;
+		transform: translateY(-50%);
+	}
+	to{
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* 	-	-	-	-	-	左移入场动画	-	-	-	-	-	*/
+/* 向左移动class */
+.move_left{
+	opacity: 0;
+	transition: 1s;
+}
+.move_left_show{
+	-webkit-animation: moveLeft linear 700ms 1;
+	opacity: 1;
+}
+/* 向左移动入场动画 */
+@-webkit-keyframes moveLeft{
+	from{
+		opacity: 0;
+		transform: translateX(50%);
+	}
+	to{
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* 	-	-	-	-	-	右移入场动画	-	-	-	-	-	*/
+/* 向右移动class */
+.move_right{
+	opacity: 0;
+	transition: 1s;
+}
+.move_right_show{
+	-webkit-animation: moveRight linear 700ms 1;
+	opacity: 1;
+}
+/* 向右移动入场动画 */
+@-webkit-keyframes moveRight{
+	from{
+		opacity: 0;
+		transform: translateX(-50%);
+	}
+	to{
+		opacity: 1;
+		transform: translateX(0);
+	}
+}

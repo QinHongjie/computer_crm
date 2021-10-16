@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace=绑定定一个对应的dao/mapper接口-->
+<mapper namespace="com.computer.dao.ComputerDao">
+
+    <!--======================================修改=============================================-->
+    <!--修改商品购物率-->
+    <update id="updateHits">
+        update computer set hits=hits+#{hit} where id=#{comId}
+    </update>
+
+    <!--通过将要删除的商品id 修改商品购物率-->
+    <update id="updateHitsBySCId">
+        update computer
+        set hits=hits-(select sum from shoppingcar where id=#{scid})
+        where id=(select comid from shoppingcar where id=#{scid})
+    </update>
+
+    <!--======================================查询=============================================-->
+    <!--查询指定商品 并与类型表关联-->
+    <select id="findCom" resultMap="ComWithTypeResult">
+        select c.*,ct.typeName,ct.id as ctid from computer c join comtype ct on c.type=ct.id where c.id=#{id}
+    </select>
+
+    <!--查询'全部商品' or '指定类型商品' or ‘指定数量’ or '指定范围'-->
+    <select id="findComs" resultMap="ComWithTypeResult">
+        select c.*,ct.typeName,ct.id as ctid from computer c join comtype ct on c.type=ct.id
+        where 1=1
+        <if test="type_id!='' and type_id!=null">
+            and type=${type_id}
+        </if>
+        <if test="order!='' and order!=null">
+            order by ${order} desc
+        </if>
+        <choose>
+            <when test="index!='' and index!=null and num!='' and num!=null">
+                limit ${index},${num}
+            </when>
+            <when test="num!='' and num!=null">
+                limit 0,${num}
+            </when>
+        </choose>
+    </select>
+
+    <!--查询外观系列商品-->
+    <select id="findWaisheComs" resultMap="ComWithTypeResult">
+        select c.*,ct.typeName,ct.id as ctid from computer c join comtype ct on c.type=ct.id
+        where c.type>#{type_id}
+        order by hits desc
+        <choose>
+            <when test="index!='' and index!=null and num!='' and num!=null">
+                limit ${index},${num}
+            </when>
+            <when test="num!='' and num!=null">
+                limit 0,${num}
+            </when>
+        </choose>
+    </select>
+
+    <!--模糊查询-->
+    <select id="findComsBySearch" resultType="computer">
+        select * from computer where comName like "%"#{content}"%"
+    </select>
+
+    <!--====================================结果集映射===========================================-->
+    <!--商品表and类型表-->
+    <resultMap id="ComWithTypeResult" type="com.computer.model.Computer">
+        <id property="id" column="id" />
+        <result property="comName" column="comName" />
+        <result property="intro" column="intro" />
+        <result property="price" column="price" />
+        <result property="picture" column="picture" />
+        <association property="type" javaType="com.computer.model.ComType">
+            <id property="id" column="type" />
+            <result property="typeName" column="typeName" />
+        </association>
+    </resultMap>
+
+    <!--外关联订单信息表-->
+    <resultMap id="SCWithComResult" type="com.computer.model.Computer">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result property="comName" jdbcType="VARCHAR" column="comName" />
+        <result property="intro" jdbcType="VARCHAR" column="intro" />
+        <result property="price" jdbcType="INTEGER" column="price" />
+        <result property="picture" jdbcType="VARCHAR" column="picture" />
+    </resultMap>
+
+</mapper>
